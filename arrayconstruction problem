@@ -1,0 +1,35 @@
+	public static void main (String[] args) {
+    Scanner sc=new Scanner(System.in);
+	int n=sc.nextInt();
+
+	int a []=new int [n];
+     int af []=new int [n];
+	for(int i=0;i<n;i++){
+		a[i]=sc.nextInt();
+	}
+		for(int i=0;i<n;i++){
+		af[i]=sc.nextInt();
+	}
+		int k=sc.nextInt();
+	int minval=0;
+	int min=0;
+	while(k>0){
+		int in=minfind(a);
+		minval=a[in];
+		k=k-af[in];
+		a[in]=-1;
+	}
+    System.out.println(minval);
+
+}
+	static int minfind(int ar []){
+		int min=0;
+		for(int i=1;i<ar.length;i++){
+         if(ar[i]<ar[min] && ar[i]>0 || ar[min]<0){
+			 min=i;
+		 }
+		}
+		return min;
+	}
+
+}
